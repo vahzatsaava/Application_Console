@@ -7,6 +7,6 @@ public interface GenericRepository<T, ID> {
     T getById(ID id) throws IOException;
     List<T> getAll() throws IOException;
     void save(T t) throws IOException;
-    T update(T t);
+    T update(T t) throws IOException;
     void deleteById(ID id) throws IOException;
 }
