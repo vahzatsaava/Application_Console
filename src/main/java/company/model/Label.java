@@ -1,21 +1,19 @@
 package company.model;
 
-import java.io.Serializable;
-
-public class Skill implements Comparable<Skill>{
-    private int id;
+public class Label {
+    private Integer id;
     private String name;
 
-    public Skill(int id, String name) {
+    public Label(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,9 +33,4 @@ public class Skill implements Comparable<Skill>{
                 '}';
     }
 
-
-    @Override
-    public int compareTo(Skill o) {
-        return this.id - o.getId();
-    }
 }

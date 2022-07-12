@@ -1,4 +1,4 @@
-package company.controller;
+package company.model;
 
 public enum PostStatus {
     ACTIVE,
