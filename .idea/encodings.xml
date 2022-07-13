@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/company" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/labels.json" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/post.json" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/writer.json" charset="windows-1251" />
+  </component>
+</project>
