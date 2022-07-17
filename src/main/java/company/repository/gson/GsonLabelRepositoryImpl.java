@@ -66,12 +66,10 @@ public class GsonLabelRepositoryImpl implements LabelRepository {
     @Override
     public Label save(Label skill) {
         List<Label> current = getSkillFromFile();
-        if (current != null) {
-            current.add(skill);
-        }else {
+        if (current == null) {
             current = new ArrayList<>();
-            current.add(skill);
         }
+        current.add(skill);
         skill.setId(generateId(current));
         writeSkillToFile(current);
         return skill;

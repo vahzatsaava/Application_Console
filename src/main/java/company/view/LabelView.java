@@ -6,11 +6,11 @@ import company.model.Label;
 import java.util.List;
 import java.util.Scanner;
 
-public class LabelView {
+public class LabelView implements View<Label>{
     private final LabelController labelController = new LabelController();
     private final Scanner scannerView = new Scanner(System.in);
 
-    public Label createSkill() {
+    public Label create() {
         System.out.println("Enter the Skill name for save!");
         String name = scannerView.next();
         Label skill = labelController.createSkill(name);
@@ -18,7 +18,7 @@ public class LabelView {
         return skill;
     }
 
-    public List<Label> getAllSkills() {
+    public List<Label> getAll() {
         return labelController.getList();
     }
 

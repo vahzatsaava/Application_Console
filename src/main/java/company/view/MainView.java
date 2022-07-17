@@ -4,39 +4,66 @@ import java.util.Scanner;
 
 public class MainView {
     private final LabelView labelView = new LabelView();
+    private final PostView postView = new PostView();
+    private final WriterView writerView = new WriterView();
     private final Scanner scanner = new Scanner(System.in);
 
-    public void MainMenu(){
-        while (true){
+    public void mainMenu(){
+        System.out.println("Menu for Labels - 1");
+        System.out.println("Menu for Posts - 2");
+        System.out.println("Menu for Writers - 3");
+        int value = scanner.nextInt();
+        switch (value){
+            case 1:
+                callMenu(labelView);
+                break;
+            case 2:
+                callMenu(postView);
+                break;
+            case 3:
+                callMenu(writerView);
+            default:
+                System.out.println("Enter only this Numbers");
+                break;
+        }
+    }
+
+    private void callMenu(View view) {
+        while (true) {
             info();
             int value = scanner.nextInt();
-            if (value == 6){
+            if (6 <= value || value < 0) {
                 break;
             }
-            switch (value){
+            switch (value) {
                 case 1:
-                    System.out.println("All skills :" + labelView.getAllSkills());
+                    System.out.println("All skills :" + view.getAll());
                     break;
                 case 2:
-                    System.out.println(labelView.createSkill());
+                    System.out.println(view.create());
                     break;
                 case 3:
-                    labelView.delete();
+                    view.delete();
                     break;
                 case 4:
-                    System.out.println(labelView.get());
+                    System.out.println(view.get());
                     break;
                 case 5:
-                    labelView.update();
+                    view.update();
                     break;
             }
         }
+        view.close();
+        scanner.close();
     }
-    private void info(){
+
+
+
+    private void info() {
         System.out.println("1 - Get All Info");
-        System.out.println("2 - Save skill");
-        System.out.println("3 - Delete skill");
-        System.out.println("4 - Get skill");
+        System.out.println("2 - Save ");
+        System.out.println("3 - Delete ");
+        System.out.println("4 - Get ");
         System.out.println("5 - Update Position");
         System.out.println("6 - Exit");
 
