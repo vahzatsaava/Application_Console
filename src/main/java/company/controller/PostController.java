@@ -2,9 +2,7 @@ package company.controller;
 
 import company.model.Label;
 import company.model.Post;
-import company.repository.LabelRepository;
 import company.repository.PostRepository;
-import company.repository.gson.GsonLabelRepositoryImpl;
 import company.repository.gson.GsonPostRepository;
 
 import java.time.LocalDateTime;

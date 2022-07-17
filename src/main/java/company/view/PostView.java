@@ -7,12 +7,12 @@ import company.model.Post;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class PostView {
+public class PostView implements View<Post>{
     private final PostController postController = new PostController();
     private final Scanner scanner = new Scanner(System.in);
 
 
-    public Post createPost() {
+    public Post create() {
         System.out.println("Enter the content name for Save");
         String content = scanner.next();
         System.out.println("Enter the beginner time");
@@ -23,7 +23,7 @@ public class PostView {
         return postController.createPost(content, localDateTimeBegin, localDateTimeFinish, labels);
     }
 
-    public List<Post> getAllPosts() {
+    public List<Post> getAll() {
         return postController.getList();
     }
 
@@ -50,9 +50,10 @@ public class PostView {
         int id = scanner.nextInt();
         return postController.getById(id);
     }
-    public void closeScanner(){
+    public void close(){
         scanner.close();
     }
+
 
     private List<Label> createLabels() {
         System.out.println("Enter how many Labels you want to create");

@@ -5,36 +5,30 @@ import java.util.Scanner;
 public class MainView {
     private final LabelView labelView = new LabelView();
     private final PostView postView = new PostView();
+    private final WriterView writerView = new WriterView();
     private final Scanner scanner = new Scanner(System.in);
 
-    public void MainMenuForLabels() {
-        while (true) {
-            info();
-            int value = scanner.nextInt();
-            if (6 <= value || value < 0) {
+    public void mainMenu(){
+        System.out.println("Menu for Labels - 1");
+        System.out.println("Menu for Posts - 2");
+        System.out.println("Menu for Writers - 3");
+        int value = scanner.nextInt();
+        switch (value){
+            case 1:
+                callMenu(labelView);
                 break;
-            }
-            switch (value) {
-                case 1:
-                    System.out.println("All skills :" + labelView.getAllSkills());
-                    break;
-                case 2:
-                    System.out.println(labelView.createSkill());
-                    break;
-                case 3:
-                    labelView.delete();
-                    break;
-                case 4:
-                    System.out.println(labelView.get());
-                    break;
-                case 5:
-                    labelView.update();
-                    break;
-            }
+            case 2:
+                callMenu(postView);
+                break;
+            case 3:
+                callMenu(writerView);
+            default:
+                System.out.println("Enter only this Numbers");
+                break;
         }
     }
 
-    public void MainMenuForPosts() {
+    private void callMenu(View view) {
         while (true) {
             info();
             int value = scanner.nextInt();
@@ -43,23 +37,27 @@ public class MainView {
             }
             switch (value) {
                 case 1:
-                    System.out.println("All skills :" + postView.getAllPosts());
+                    System.out.println("All skills :" + view.getAll());
                     break;
                 case 2:
-                    System.out.println(postView.createPost());
+                    System.out.println(view.create());
                     break;
                 case 3:
-                    postView.delete();
+                    view.delete();
                     break;
                 case 4:
-                    System.out.println(postView.get());
+                    System.out.println(view.get());
                     break;
                 case 5:
-                    postView.update();
+                    view.update();
                     break;
             }
         }
+        view.close();
+        scanner.close();
     }
+
+
 
     private void info() {
         System.out.println("1 - Get All Info");

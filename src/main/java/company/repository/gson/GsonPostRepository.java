@@ -69,12 +69,10 @@ public class GsonPostRepository implements PostRepository {
     @Override
     public Post save(Post post) {
         List<Post> current = getAll();
-        if (current != null){
-            current.add(post);
-        }else {
+        if (current == null) {
             current = new ArrayList<>();
-            current.add(post);
         }
+        current.add(post);
         post.setId(generateId(current));
         writeToJsonFile(current);
         return post;
